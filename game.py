@@ -5,15 +5,17 @@
 class Room:
     """A location in the dungeon."""
     
-    # Constructor
+    # Constructor Method
+    # The first attribute in a constructor definition is used to refer to the object 
+    # It therefore doesn't need anything passed in when an object is instantiated
     def __init__(self, name, description):
         # Attributes
         self.name = name
         self.description = description
-        self.items = []
-        self.exits = {}   # e.g. {'north': another_room}
+        self.items = [] # Every room has no items by default - reduces risk of mistypes when creating objects
+        self.exits = {} # e.g. {'north': another_room}
 
-    #Methods
+    # Methods
 
     def add_exit(self, direction, room):
         """Connect this room to another in a given direction."""
@@ -60,11 +62,13 @@ library.add_exit('south', entrance)
 
 # Instantiation - using a class to create an object (uses the constructor method)
 player1 = Player("Amy")
+player2 = Player("Adam")
  
 # ── Run the game ──────────────────────────────────────────────────────
  
 entrance.describe()
 player1.show_status()
+player2.show_status()
  
 # Move north
 current_room = entrance.exits['north']
